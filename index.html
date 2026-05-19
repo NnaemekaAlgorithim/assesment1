@@ -1,55 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Prep AI</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Google Font -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="min-h-screen flex items-center justify-center p-4">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InterviewGen • AI Interview Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 to-gray-100 min-h-screen font-sans">
+    <div class="max-w-2xl mx-auto px-6 py-12">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-3 bg-white rounded-3xl px-6 py-3 shadow-sm mb-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-inner">
+            🤖
+          </div>
+          <h1 class="text-4xl font-semibold tracking-tight text-gray-900">InterviewGen</h1>
+        </div>
+        <p class="text-gray-600 text-lg">Instant AI-powered interview questions</p>
+      </div>
 
-    <div class="w-full max-w-md glass-card rounded-3xl shadow-2xl p-8 transition-all">
-        <header class="text-center mb-8">
-            <div class="brand-icon shadow-lg">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-            </div>
-            <h1 class="text-2xl font-bold text-gray-800">Interview Prep</h1>
-            <p class="text-gray-500 text-sm">Generate smart questions for any role</p>
-        </header>
+      <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-gray-500 mb-2 tracking-widest">JOB TITLE</label>
+            <input
+              type="text"
+              id="jobTitle"
+              placeholder="e.g. Senior Product Manager, Backend Engineer"
+              class="w-full px-5 py-4 text-lg rounded-2xl border border-gray-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all"
+            />
+          </div>
 
-        <div class="space-y-4">
-            <div>
-                <label class="label-text">Job Title</label>
-                <input type="text" id="jobTitle" placeholder="e.g. Customer Success Manager"
-                    class="input-field">
-            </div>
-
-            <button id="submitBtn" class="primary-button">
-                <span id="btnText">Generate Questions</span>
-                <div id="loader" class="loader hidden"></div>
-            </button>
+          <button
+            id="submitBtn"
+            class="w-full bg-gray-900 hover:bg-black active:scale-[0.985] transition-all text-white font-semibold text-lg py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg"
+          >
+            <span id="btnText">Generate Interview Questions</span>
+            <div id="loader" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin hidden"></div>
+          </button>
         </div>
 
-        <!-- Result Area -->
-        <div id="resultContainer" class="hidden mt-8 space-y-4 animate-slide-up">
-            <div id="output" class="output-box">
-                <!-- AI Content -->
-            </div>
-            <button id="copyBtn" class="secondary-button">
-                Copy to Clipboard
-            </button>
-        </div>
+        <!-- Error Message -->
+        <div id="error" class="hidden mt-6 bg-red-50 border border-red-200 text-red-600 px-5 py-3 rounded-2xl text-sm"></div>
 
-        <div id="error" class="error-msg hidden"></div>
+        <!-- Results -->
+        <div id="resultContainer" class="hidden mt-10">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-gray-800">Generated Questions</h2>
+            <button
+              id="copyBtn"
+              class="px-6 py-2.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-2xl text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              📋 Copy
+            </button>
+          </div>
+          <div id="output" class="bg-gray-50 border border-gray-100 rounded-3xl p-7 text-gray-700 leading-relaxed whitespace-pre-wrap min-h-[220px]"></div>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-8">
+        Powered by OpenRouter + Llama 3.1 8B
+      </p>
     </div>
 
-    <!-- Import logic as a module to handle Gemini API -->
-    <script type="module" src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
