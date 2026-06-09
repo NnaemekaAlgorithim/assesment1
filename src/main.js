@@ -9,7 +9,7 @@ const errorDiv = document.getElementById('error');
 const copyBtn = document.getElementById('copyBtn');
 
 // 🚨 REPLACE THIS WITH YOUR ACTUAL DEPLOYED VERCEL BACKEND PROXY URL
-const BACKEND_URL = "https://interviewgen-backend.vercel.app";
+const BACKEND_URL = "https://interviewgen-backend.vercel.app/api/interview";
 
 async function generateQuestions() {
     const title = jobInput.value.trim();
