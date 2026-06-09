@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">InterviewGen</string>
+    <string name="title_activity_main">InterviewGen</string>
+    <string name="package_name">com.nwodo.interviewgen</string>
+    <string name="custom_url_scheme">com.nwodo.interviewgen</string>
+</resources>
